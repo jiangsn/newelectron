@@ -1,21 +1,18 @@
 <template>
   <div class="main">
-    <Menu  :open-names="openName" ref="side_menu">
-  <Submenu  :name="item.title"  v-for="item in route" v-bind:key="item.title">
+    <el-menu  :default-openeds="openName" default-active=''>
+      <div v-for="item in route" v-bind:key="item.title">
+  <el-submenu  :index="item.title" >
         <template slot="title" class="item">
-          <Icon class="icon" type="ios-menu"/>
-          <span class="blod">{{item.title}}</span>
+          <i class="el-icon-menu"></i>
+          <span>{{item.title}}</span>
         </template>
-        <div>
-          <MenuItem :name="item.route1">
-            <span class="offset">{{item.route1}}</span>
-          </MenuItem>
-          <MenuItem :name="item.route2">
-            <span class="offset">{{item.route2}}</span>
-          </MenuItem>
+          <el-menu-item :index="item"  v-for="item in item.route" v-bind:key="item.title">
+            <span>{{item}}</span>
+          </el-menu-item>
+      </el-submenu>
         </div>
-      </Submenu>
-    </Menu>
+    </el-menu>
   </div>
 </template>
 <script>
@@ -34,11 +31,7 @@ export default {
     }
   },
   watch: {
-    openName: function () {
-      this.$nextTick(() => {
-        this.$refs.side_menu.updateOpened()
-      })
-    }
+
   }
 
 }
@@ -47,11 +40,7 @@ export default {
 
 
 <style lang="scss" scoped>
-.offset{
-  padding-left:8px; 
-}
-.blod{
-  font-weight: 700;
-}
+
+
 </style>
 

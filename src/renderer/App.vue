@@ -15,8 +15,5 @@
 a{
   color: white !important;
 }
-*{
-  transition: none;
-  animation: none;
-}
+
 </style>

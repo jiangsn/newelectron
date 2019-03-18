@@ -1,18 +1,24 @@
 <template>
   <div class="container">
-    <div>
-      <navbar/>
-    </div>
-
-    <div class="main">
-      <div class="sidebar">
+    <el-row>
+      <el-col :span="24">
+        <navbar/>
+      </el-col>
+    </el-row>
+    <el-row>
+      <el-col :span="5">
         <sidebar/>
-      </div>
-      <div class="content">
-        <basegroupinput />
-        <Basetable />
-      </div>
-    </div>
+      </el-col>
+      <el-col :span="19" class="main">
+        <Breadcrumb />
+        <div class="main-body">
+
+      
+        <basegroupinput/>
+        <Basetable/>
+          </div>
+      </el-col>
+    </el-row>
   </div>
 </template>
 
@@ -21,12 +27,12 @@ import navbar from '../components/navbar'
 import sidebar from '../components/sidebar'
 import basegroupinput from '../components/BaseGroupInput'
 import Basetable from '../components/Basetable'
+import Breadcrumb from '../components/Breadcrumb'
+
 export default {
   name: 'landing-page',
-  components: { navbar, sidebar, basegroupinput, Basetable },
-  methods: {
-
-  }
+  components: { navbar, sidebar, basegroupinput, Basetable, Breadcrumb },
+  methods: {}
 }
 </script>
 
@@ -43,21 +49,12 @@ body {
   font-family: "Source Sans Pro", sans-serif;
 }
 .container{
- width: 100%;
-
-  
-}
-.sidebar {
-  border-right: 1px solid #ddd;
+  width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 1);
+  background: #ddd;
 }
+.main-body{
 
-.main {
-  display: flex;
-  height: 730px;
-}
-.content{
-  flex:1;
+  background: white;
 }
 </style>

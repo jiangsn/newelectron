@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="baseInput">
     <div class="right">
       <Select v-model="model1" style="width:200px">
         <Option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</Option>
@@ -37,12 +37,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
+.baseInput {
   display: flex;
   align-items: center;
   padding: 10px;
   box-sizing: border-box;
   width: 100%;
+  background: white;
 }
 .right {
   margin-right: 10px;
